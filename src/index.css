@@ -6,6 +6,108 @@ body{
     background-color: black;
     color: white;
 }
+/* html {
+  scroll-behavior: smooth;
+} */
+
+
+/* Navbar css */
+
+
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.1); /* transparent glass effect */
+  backdrop-filter: blur(12px); /* blur background */
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px #ffc107; /* yellow glow shadow */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+
+}
+.container-fluid{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-navbar .nav-link {
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffc107 !important;
+}
+
+/* Neon Search Input */
+/* .neon-input {
+  border: 2px solid #00ffe0 !important; 
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  box-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+  transition: all 0.3s ease;
+}
+
+.neon-input:focus {
+  outline: none;
+  box-shadow: 0 0 15px #00ffe0, 0 0 30px #00ffe0;
+  border-color: #00ffe0;
+} */
+
+
+/* Search input */
+
+.form-control{
+    border: 2px solid transparent;
+    background: rgba(225, 225, 225, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    color: white;
+
+}
+.form-control:focus{
+    border-color: #ffc107;
+    background: rgba(225, 225, 225, 0.15);
+    box-shadow: 0 0 20px rgba(255, 203, 34, 0.7);
+}
+.form-control::placeholder{
+     color: #888;
+}
+
+.selectcategory{
+    border: 2px solid transparent;
+    background: rgba(225, 225, 225, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    color: rgb(255, 255, 255);
+    appearance: none;       /* removes browser default style */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.selectcategory:focus{
+    border-color: #ffc107;
+    background: rgba(225, 225, 225, 0.15);
+    box-shadow: 0 0 20px rgba(255, 203, 34, 0.7);
+}
+.selectcategory::placeholder{
+    color: #888;
+}
+.selectcategory option{
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 h2{
     text-align: center;
     padding: 20px 0px;
@@ -21,6 +123,10 @@ h2{
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(-5px);
+
+
 }
 .card-img-top{
     width: auto !important;
@@ -29,6 +135,18 @@ h2{
 }
 .card-img-top1{
     height: 350px;
+}
+.cardsection{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 130px 0px 0px 0px;
+
+}
+.card1 img{
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 /* .imagepng{
     width: 200px;
@@ -46,13 +164,22 @@ h2{
 } */
 
 
-
+.maincircle{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    gap: 290px;
+    padding: 100px 0px 150px 0px;
+    position: relative;
+    top: 150px;
+}
 .card {
     height: 100%;
-    min-height: 400px;
+    min-height: 343px;
     background-color: #1a1a1a;
     border: 1px solid #333;
-    border-radius: 12px;
+    border-radius: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .bottomcards{
@@ -143,13 +270,42 @@ h2{
 }
 .navbar{
     color: white !important;
-    background-color: rgb(196, 196, 196) !important;
+    /* background-color: rgb(49 49 49)!important; */
+    background-color: #272727 !important;
 }
 
+.navbar-nav .nav-link.active{
+    color: white !important;
+}
+.navbar-toggler,.navbar-toggler-icon {
+    color: white !important;
+}
+.cartcountbtn{
+    position: fixed;
+    z-index: 12;
+    left: 1435px;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 16px;
+    background-color: red;
+    top: 692px;
+    color: white;
+}
+/* .cartcountbtn1{
+    position: fixed;
+    z-index: 12;
+    left: 1200px;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 16px;
+    background-color: red;
+    top: 773px;
+    color: white;
+} */
 .carticon{
     position: fixed;
     z-index: 2;
-    left: 1460px;
+    left: 1440px;
     border-radius: 10px;
     /* background-color: white; */
     top: 700px;
@@ -200,3 +356,242 @@ h2{
     height: 100%;
     object-fit: cover; /* Maintains aspect ratio while filling container */
 }
+
+/* Signup page css */
+
+/* .container{
+    justify-items: center;
+} */
+/* .loginpage{
+    color: white;
+    font-size: 20px;
+} */
+/* .loginbtn{
+    padding: 10px 20px;
+    background-color: #ffc107;
+    border-radius: 20px;
+    border: none;
+
+} */
+ .gridlayout{
+    background: url(https://img.freepik.com/free-photo/tasty-pizza-near-ingredients_23-2147772080.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    /* padding: 0px 550px; */
+ }
+  .gridlayout1{
+    background: url(https://t3.ftcdn.net/jpg/07/58/26/62/360_F_758266271_yksdY7RLYIIY6jofjJorjylEDOvgcuze.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    /* padding: 0px 550px; */
+ }
+.signupbtn{
+    padding: 5px 30px;
+    color: black;
+    background-color: #ffc107;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    border: none;
+    border-radius: 15px;
+    border: 2px solid #ffc107;
+}
+.signupbtn:hover{
+    color: white;
+    background-color: gray;
+    border: 2px solid #ffc107;
+    background: rgba(225, 225, 225, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.signupbtn:focus{
+    border-color: #ff6b35;
+    background: rgba(225, 225, 225, 0.15);
+    box-shadow: 0 0 20px rgba(225, 107, 53, 0.7);
+}
+.boxcontainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* margin: 180px 0px; */
+    position: relative;
+    top: 180px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* border: 2px solid #ffc107; */
+    border-radius: 16px;
+    box-shadow: 
+        0 15px 45px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+    padding: 20px 0px;
+    width: 30%;
+    margin-left: auto;  
+    margin-right: auto;
+}
+.boxcontainer:hover,
+.boxcontainer:focus-within {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 20px 50px rgba(255, 170, 1, 0.12),
+        inset 0 1px 0 rgba(255, 220, 22, 0.5);
+    border: 1px solid #ffc107;
+}
+.topcontainer{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 40px;
+}
+.formtag{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    
+}
+.formtag input{
+    padding: 10px 120px 10px 20px;
+    outline: none;
+    border: 2px solid transparent;
+    background: rgba(225, 225, 225, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    color: #ffc107;
+
+}
+.formtag input:focus{
+    border-color: #ffc107;
+    background: rgba(225, 225, 225, 0.15);
+    box-shadow: 0 0 20px rgba(225, 107, 53, 0.7);
+}
+input::placeholder{
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+/* Slider.css */
+/* .slider-main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.slider-image {
+  width: 400px;
+  height: auto;
+} */
+/* (Add all your styles from style.css here) */
+
+/* 
+.slider-main {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.slider-content {
+  color: #fff;
+  max-width: 500px;
+}
+
+.slider-images {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  z-index: 5;
+}
+
+.slider-image {
+  position: absolute;
+  width: 350px;
+  opacity: 0; 
+}
+
+#backgrounds {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.background:first-child {
+  opacity: 1;
+} */
+
+
+
+
+/* cardbutton */
+
+.quantity{
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+.quantity span{
+    font-weight: 700;
+}
+.plusbtn{
+    padding: 6px 16px;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    color: black;
+    font-weight: 700;
+    background-color: #ffc107;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,40 @@
 // import { icon, text } from '@fortawesome/fontawesome-svg-core'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation,useNavigate } from 'react-router-dom'
 import car from './images/cart.png' 
+import Navbar from './Navbar'
 
 const Shop = ({cart, setCart}) => {
+    const navigate = useNavigate();
+  const categorychange = (e)=>{
+    // e.preventDefault();
+    const selectedcategory = e.target.value;
+
+    switch(selectedcategory){
+      case 'Breakfast':
+        navigate('/breakfast')
+        break;
+      case 'Lunch':
+        navigate('/lunch')
+        break; 
+      case 'Dinner':
+        navigate('/dinner')
+        break; 
+      case 'Snacks':
+        navigate('/snacks')
+        break; 
+      case 'Beverages':
+        navigate('/beverages')
+        break;
+      default:
+        navigate('/shop')
+        break;
+    }
+  }
+
     const [productdetails, setProductdetails] = useState([
         {
-            id: 301,
+            id: 36,
             product: 'Normal Paratha',
             category: 'Lunch & Dinner',
             price: 50,
@@ -14,7 +42,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://static.vecteezy.com/system/resources/thumbnails/049/178/253/small_2x/aloo-paratha-on-transparent-background-png.png"
         },
         {
-            id: 302,
+            id: 37,
             product: 'Paneer Paratha',
             category: 'Mixed Dish',
             price: 150,
@@ -22,7 +50,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://vadilalglobal.com/cdn/shop/files/MalaiPaneerParatha.png?v=1710916895&width=1946"
         },
         {
-            id: 303,
+            id: 38,
             product: 'Gobi Paratha',
             category: 'Mixed Dish',
             price: 150,
@@ -30,7 +58,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://64.media.tumblr.com/07446f95e6f96f9aaa94be4db82217af/534253c094293b40-32/s1280x1920/c91774a5aa22dfda1c26840e9cbb54902a13a44e.pnj"
         },
         {
-            id: 304,
+            id: 39,
             product: 'Aloo Paratha',
             category: 'Mixed Dish',
             price: 180,
@@ -38,7 +66,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://png.pngtree.com/png-vector/20250301/ourmid/pngtree-a-plate-of-stuffed-parathas-with-yogurt-and-pickles-on-transparent-png-image_15682989.png"
         },
         {
-            id: 305,
+            id: 40,
             product: 'Palak Paratha',
             category: 'Mixed Dish',
             price: 250,
@@ -46,7 +74,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://vadilalglobal.com/cdn/shop/files/SpinachParatha.png?v=1710917634&width=1445"
         },
         {
-            id: 306,
+            id: 41,
             product: 'Methi Paratha',
             category: 'Mixed Dish',
             price: 280,
@@ -54,7 +82,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://static.vecteezy.com/system/resources/previews/054/721/774/non_2x/gujarati-specialty-soft-methi-thepla-free-png.png"
         },
         {
-            id: 307,
+            id: 42,
             product: 'Beetroot Paratha',
             category: 'Mixed Dish',
             price: 250,
@@ -62,7 +90,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://www.ethicaldelights.in/cdn/shop/files/8_791d83e2-a727-463a-bde7-5f87485d1594.png?v=1749205106"
         },
         {
-            id: 308,
+            id: 43,
             product: 'Mix Veg Paratha',
             category: 'Mixed Dish',
             price: 180,
@@ -70,7 +98,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://crown-foods.com/wp-content/uploads/2023/05/mix-vegetable-pharata_11zon-1024x1024-1.png"
         },
         {
-            id: 309,
+            id: 44,
             product: 'Egg Paratha',
             category: 'Mixed Dish',
             price: 30,
@@ -78,7 +106,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://static.vecteezy.com/system/resources/previews/054/312/178/non_2x/a-golden-brown-paratha-served-alongside-a-sunny-side-up-egg-garnished-with-a-sprinkle-of-black-pepper-free-png.png"
         },
         {
-            id: 310,
+            id: 45,
             product: 'Pizza Paratha',
             category: 'Mixed Dish',
             price: 100,
@@ -86,7 +114,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://framerusercontent.com/images/NNZq2cULL6eviZAp6PhoEhRXl94.png"
         },
         {
-            id: 311,
+            id: 46,
             product: 'Poli Paratha ',
             category: 'Mixed Dish',
             price: 80,
@@ -94,7 +122,7 @@ const Shop = ({cart, setCart}) => {
             image: "https://pakistanatlas.com/wp-content/uploads/2020/09/Pakistani-Food_0128_129-Basen-wali-roti.png"
         },
         {
-            id: 312,
+            id: 47,
             product: 'Butter Naan Paratha',
             category: 'Mixed Dish',
             price: 100,
@@ -103,6 +131,23 @@ const Shop = ({cart, setCart}) => {
         },
     ])
 
+        
+    const location = useLocation();
+    const [searchitems, setSearchitems] = useState('');
+    const [countdown, setCountdown] = useState([]);
+
+
+    useEffect(()=>{
+        setSearchitems(location.state?.searchitems || '')
+
+    },[location.state])
+
+    const filteredproducts = productdetails.filter((items) =>
+        items.product.toLowerCase().includes(searchitems.toLowerCase())
+    )
+    console.log(searchitems);
+    
+
    const addtocart = (product)=>{
     setCart(cart =>{
         let cartitems = cart.find((item)=>item.id === product.id)
@@ -110,13 +155,66 @@ const Shop = ({cart, setCart}) => {
     })
    }
 
+
+   const particularproduct = (element,numbers) =>{
+    const uniquedata = countdown.filter((object,index,arr)=> index == arr.findIndex((ddd)=>  ddd.id === object.id))
+    console.log("uniquedata",uniquedata);
+    const findingpostion =  uniquedata.indexOf(element);
+    uniquedata[findingpostion].count = uniquedata[findingpostion].count + numbers 
+    setCart([...uniquedata])
+    
+    
+    
+}
     return (
         <div>
+            <Navbar></Navbar>
+
+             {/* <select name="category" id="category" style={{marginTop: "100px"}} onChange={categorychange}>
+                                <option value="Select Your Category" >Select Your Category</option>
+                                <option value="Breakfast">Breakfast </option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Snacks">Snacks</option>
+                                <option value="Beverages">Beverages</option>
+                        
+                        
+                        
+                              </select> */}
+                              <h2 className='mt-5 mb-4 pt-5' style={{color: "orange"}}>What's on Your Mind?</h2>
+                                <div className="cards">
+                                  <div className="card1 ">
+                                    <Link to = '/briyani'><img src="https://rosepng.com/wp-content/uploads/2024/09/s11728_chicken_biryani_isolated_on_white_background_da1c56d4-0b9e-493f-bb41-c2277115512d_0-photoroom.png" alt="Briyani" width={"150px"} /></Link>
+                                    <p>Briyani</p>
+                                  </div>
+                                   <div className="card1">
+                                    <Link to= "/pizza"><img src="https://png.pngtree.com/png-vector/20241211/ourmid/pngtree-authentic-italian-pizza-with-cheese-and-fresh-vegetable-toppings-png-image_14714611.png" alt="Pizza"  width={"170px"}/></Link>
+                                    <p>Pizza</p>
+                                  </div>
+                                   <div className="card1">
+                                    <Link to='/noodles'><img src="https://rosepng.com/wp-content/uploads/2024/10/s11728_chowmein_isolated_on_white_background_-stylize_200_6963855d-6af2-47ef-9b61-c1e27057be3a_3-photoroom.png" alt="Noodles"  width={"140px"} /></Link>
+                                    <p>Noodles</p>
+                                  </div>
+                                   <div className="card1">
+                                    <Link to = '/paratha'><img src="https://png.pngtree.com/png-vector/20250301/ourmid/pngtree-a-plate-of-stuffed-parathas-with-yogurt-and-pickles-on-transparent-png-image_15682989.png" alt="Paratha"  width={"180px"}/></Link>
+                                    <p>Paratha</p>
+                                  </div>
+                                   <div className="card1">
+                                    <Link to = '/shakes'><img src="https://static.vecteezy.com/system/resources/previews/029/107/695/non_2x/chocolate-milkshake-with-toppings-on-a-transparent-background-ai-generative-free-png.png" alt="Shakes"  width={"150px"}/></Link>
+                                    <p>Shakes</p>
+                                  </div>
+                                   <div className="card1">
+                                    <Link to={'/chatitems'}><img src="https://static.vecteezy.com/system/resources/previews/052/935/114/non_2x/delicious-pani-puri-clipart-free-png.png" alt="Chat items"  width={"150px"}/></Link>
+                                    <p>Chat Items</p>
+                                  </div>
+                                </div>
+            
+
 
             <div className="container mt-5 mb-5 pt-5 pb-5">
                 <div className='row'>
                     {
-                        productdetails.map((element, index) => 
+                        filteredproducts.map((element, index) => 
                             <div key={element.id} className='col-lg-4 col-md-6 col-sm-12 mt-4 d-flex'>
                                 <div className="card h-100 w-100 shadow-sm">
                                     <div className="card-body d-flex flex-column text-center">
@@ -136,6 +234,11 @@ const Shop = ({cart, setCart}) => {
                                         <h5 className="card-title mb-2">{element.product}</h5>
                                         <p className="card-text mb-2 text-muted"> Category : {element.category}</p>
                                         <p className="card-text mb-3 fs-5 fw-bold text-success"> Price : ₹{element.price}</p>
+                                        <div className="quantity">
+                                            <button className='plusbtn' onClick={()=>{setCountdown([...countdown,element]);particularproduct(element,-1)}}>-</button>
+                                            <span style={{color:"white"}}>{element.count}</span>
+                                            <button className='plusbtn' onClick={()=>{setCountdown([...countdown,element]);particularproduct(element,1)}}>+</button>
+                                        </div>
                                         {/* <button className="btn btn-warning mt-auto" onClick={() => setCart([...cart, element] , alert("Item added to Cart Successfully"))}>Add To Cart </button> */}
 
                                         <button className='btn btn-warning mt-auto' onClick={()=>{addtocart(element); Swal.fire({

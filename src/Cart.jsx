@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import Navbar from './Navbar'
+import FantaWebsite from './FantaWebsite'
+import Anothernav from './Anothernav'
 
 const Cart = ({cart,setCart}) => {
   const [price, setPrice] = useState(0)
@@ -28,6 +31,10 @@ const Cart = ({cart,setCart}) => {
     }
   return (
     <div>
+      {/* <Navbar></Navbar> */}
+      <Anothernav></Anothernav>
+      
+      {/* <FantaWebsite></FantaWebsite> */}
       <div className="container mt-5 mb-5 pt-5 pb-5">
         {
           cart.length == 0 ? <h2 style={{color:"orange"}}>Your Food Cart is Empty</h2> : <h2 style={{color:"orange", paddingBottom: "5 0px"}}>Total Amount : {price}</h2>
